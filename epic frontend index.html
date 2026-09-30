@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - Learning Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>EduGenie 📚</h1>
+    <p>Your personal AI assistant for learning support</p>
+
+    <form id="taskForm">
+        <label for="task">Select Task:</label>
+
+        <select id="task">
+            <option>Explain</option>
+            <option>QnA</option>
+            <option>Quiz</option>
+            <option>Summary</option>
+            <option>Recommend Path</option>
+        </select>
+
+        <label for="userInput">Enter your question:</label>
+
+        <textarea id="userInput"
+                  placeholder="Type your question here..."
+                  rows="6"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result" class="result">
+        <h2>Result</h2>
+        <p>Your answer will appear here.</p>
+    </div>
+</div>
+
+<script>
+document.getElementById("taskForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const task = document.getElementById("task").value;
+    const input = document.getElementById("userInput").value;
+
+    document.getElementById("result").innerHTML =
+        "<h2>Result</h2>" +
+        "<p><strong>Task:</strong> " + task + "</p>" +
+        "<p><strong>Input:</strong> " + input + "</p>";
+});
+</script>
+
+</body>
+</html>
