@@ -1,0 +1,15 @@
+Future Enhancements of EduGenie
+
+Voice Interaction – Add voice input and voice-based answers for easy learning.
+
+Personalized Learning – Provide learning content based on each student’s level and interests.
+
+Progress Tracking – Track quiz scores, completed topics, and learning progress.
+
+Multilingual Support – Support multiple languages such as English and Tamil.
+
+Mobile Application – Develop an Android/iOS app for learning anywhere.
+
+More AI Features – Add flashcards, practice questions, and smart study plans.
+
+Cloud Deployment – Deploy EduGenie online so students can access it from anywhere.
