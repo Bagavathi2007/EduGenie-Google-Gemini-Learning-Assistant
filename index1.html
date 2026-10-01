@@ -1,0 +1,54 @@
+<script>
+document.getElementById("taskForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const task = document.getElementById("task").value;
+    const input = document.getElementById("userInput").value;
+    const resultBox = document.getElementById("result");
+
+    if (!input.trim()) {
+        resultBox.innerHTML = "<h2>Result</h2><p>Please enter your question.</p>";
+        return;
+    }
+
+    resultBox.innerHTML = "<h2>Result</h2><p>Loading...</p>";
+
+    const endpoints = {
+        explain: "/explain",
+        qna: "/qa",
+        quiz: "/quiz",
+        summary: "/summarize",
+        recommend: "/learn/recommendations"
+    };
+
+    try {
+        const response = await fetch(endpoints[task], {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: input
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+
+        const data = await response.json();
+
+        resultBox.innerHTML = `
+            <h2>Result</h2>
+            <p>${data.result}</p>
+        `;
+
+    } catch (error) {
+        resultBox.innerHTML = `
+            <h2>Result</h2>
+            <p>Unable to connect to the FastAPI backend.</p>
+        `;
+        console.error(error);
+    }
+});
+</script>
